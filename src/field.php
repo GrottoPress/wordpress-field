@@ -135,7 +135,7 @@ class Field extends Form\Field {
 	 * @return string Form field html.
 	 */
 	protected function render_color_picker(): string {
-
+		return '';
 	}
 
 	/**
