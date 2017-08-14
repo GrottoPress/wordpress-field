@@ -55,7 +55,7 @@ class Field_Test extends \WP_UnitTestCase {
         $field = new Field( [
             'type' => 'wp_dropdown_categories',
             'layout' => 'block',
-            'callable_args' => [
+            'callback_args' => [
                 [ 
                     'show_option_none' => '--',
                     'echo' => 0,
@@ -84,7 +84,7 @@ class Field_Test extends \WP_UnitTestCase {
         $field = new Field( [
             'type' => 'wp_dropdown_categories',
             'layout' => 'block',
-            'callable_args' => [
+            'callback_args' => [
                 [ 
                     'show_option_none' => '--',
                     'echo' => 0,
@@ -113,7 +113,7 @@ class Field_Test extends \WP_UnitTestCase {
         $field = new Field( [
             'type' => 'wp_dropdown_pages',
             'layout' => 'block',
-            'callable_args' => [
+            'callback_args' => [
                 [ 
                     'show_option_none' => '--',
                     'echo' => 0,

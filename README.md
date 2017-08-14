@@ -82,7 +82,7 @@ Instantiate and use thus:
     // Categories dropdown
     $catsdrop = new Field( [
         'type' => 'wp_dropdown_categories', // callable WP function
-        'callable_args' => [ // Args to pass to callable function
+        'callback_args' => [ // Args to pass to callable function
             [ // @see https://developer.wordpress.org/reference/functions/wp_dropdown_categories/
                 'show_option_none'   => '--',
                 'echo'               => 0,

@@ -32,9 +32,9 @@ class Field extends Form_Field {
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var array $callable_args Args to supply to a callable type
+	 * @var array $callback_args Args to supply to a callable type
 	 */
-	protected $callable_args;
+	protected $callback_args;
 
 	/**
 	 * Render form field.
@@ -47,7 +47,7 @@ class Field extends Form_Field {
 	public function render(): string {
 		if ( \in_array( $this->type, $this->callables() ) ) {
 			return $this->render_start()
-				. \call_user_func_array( ( string ) $this->type, $this->callable_args )
+				. \call_user_func_array( ( string ) $this->type, $this->callback_args )
 				. $this->render_end();
 		}
 
@@ -145,7 +145,7 @@ class Field extends Form_Field {
 	 * @access protected
 	 */
 	protected function sanitize_attributes() {
-		$this->callable_args = ( array ) $this->callable_args;
+		$this->callback_args = ( array ) $this->callback_args;
 
 		parent::sanitize_attributes();
 	}
