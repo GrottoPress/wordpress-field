@@ -16,7 +16,7 @@ declare ( strict_types = 1 );
 
 namespace GrottoPress\WordPress\Form;
 
-use GrottoPress\Form\Field as Form_Field;
+use GrottoPress\Form;
 
 if ( \defined( 'WPINC' ) ) :
 
@@ -25,7 +25,7 @@ if ( \defined( 'WPINC' ) ) :
  *
  * @since 0.1.0
  */
-class Field extends Form_Field {
+class Field extends Form\Field {
 	/**
      * Callable args
 	 *
@@ -159,7 +159,13 @@ class Field extends Form_Field {
 	 * @return array Callables to allow for our field type.
 	 */
 	private function callables(): array {
-		return [ 'wp_dropdown_categories', 'wp_dropdown_pages' ];
+		return [
+			'wp_dropdown_categories',
+			'wp_dropdown_pages',
+			'wp_dropdown_users',
+			'wp_dropdown_roles',
+			'wp_dropdown_languages',
+		];
 	}
 }
 
