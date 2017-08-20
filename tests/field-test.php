@@ -3,8 +3,7 @@
 /**
  * Pagination Tests
  *
- * @package GrottoPress\WordPress\Form
- * @subpackage GrottoPress\WordPress\Form\Tests
+ * @package GrottoPress\WordPress\Form\Tests
  *
  * @since 0.1.0
  *

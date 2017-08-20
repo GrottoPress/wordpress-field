@@ -16,9 +16,9 @@ declare ( strict_types = 1 );
 
 namespace GrottoPress\WordPress\Form;
 
-use GrottoPress\Form;
-
 if ( \defined( 'WPINC' ) ) :
+
+use GrottoPress\Form;
 
 /**
  * WordPress Form field
