@@ -3,8 +3,7 @@
 /**
  * Pagination Tests
  *
- * @package GrottoPress\WordPress\Form
- * @subpackage GrottoPress\WordPress\Form\Tests
+ * @package GrottoPress\WordPress\Form\Tests
  *
  * @since 0.1.0
  *
@@ -55,7 +54,7 @@ class Field_Test extends \WP_UnitTestCase {
         $field = new Field( [
             'type' => 'wp_dropdown_categories',
             'layout' => 'block',
-            'callable_args' => [
+            'callback_args' => [
                 [ 
                     'show_option_none' => '--',
                     'echo' => 0,
@@ -84,7 +83,7 @@ class Field_Test extends \WP_UnitTestCase {
         $field = new Field( [
             'type' => 'wp_dropdown_categories',
             'layout' => 'block',
-            'callable_args' => [
+            'callback_args' => [
                 [ 
                     'show_option_none' => '--',
                     'echo' => 0,
@@ -113,7 +112,7 @@ class Field_Test extends \WP_UnitTestCase {
         $field = new Field( [
             'type' => 'wp_dropdown_pages',
             'layout' => 'block',
-            'callable_args' => [
+            'callback_args' => [
                 [ 
                     'show_option_none' => '--',
                     'echo' => 0,

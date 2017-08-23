@@ -16,7 +16,7 @@ declare ( strict_types = 1 );
 
 namespace GrottoPress\WordPress\Form;
 
-use GrottoPress\Form\Field as Form_Field;
+use GrottoPress\Form;
 
 if ( \defined( 'WPINC' ) ) :
 
@@ -25,16 +25,16 @@ if ( \defined( 'WPINC' ) ) :
  *
  * @since 0.1.0
  */
-class Field extends Form_Field {
+class Field extends Form\Field {
 	/**
      * Callable args
 	 *
 	 * @since 0.1.0
 	 * @access protected
 	 * 
-	 * @var array $callable_args Args to supply to a callable type
+	 * @var array $callback_args Args to supply to a callable type
 	 */
-	protected $callable_args;
+	protected $callback_args;
 
 	/**
 	 * Render form field.
@@ -47,7 +47,7 @@ class Field extends Form_Field {
 	public function render(): string {
 		if ( \in_array( $this->type, $this->callables() ) ) {
 			return $this->render_start()
-				. \call_user_func_array( ( string ) $this->type, $this->callable_args )
+				. \call_user_func_array( ( string ) $this->type, $this->callback_args )
 				. $this->render_end();
 		}
 
@@ -135,7 +135,7 @@ class Field extends Form_Field {
 	 * @return string Form field html.
 	 */
 	protected function render_color_picker(): string {
-
+		return '';
 	}
 
 	/**
@@ -145,7 +145,7 @@ class Field extends Form_Field {
 	 * @access protected
 	 */
 	protected function sanitize_attributes() {
-		$this->callable_args = ( array ) $this->callable_args;
+		$this->callback_args = ( array ) $this->callback_args;
 
 		parent::sanitize_attributes();
 	}
@@ -159,7 +159,13 @@ class Field extends Form_Field {
 	 * @return array Callables to allow for our field type.
 	 */
 	private function callables(): array {
-		return [ 'wp_dropdown_categories', 'wp_dropdown_pages' ];
+		return [
+			'wp_dropdown_categories',
+			'wp_dropdown_pages',
+			'wp_dropdown_users',
+			'wp_dropdown_roles',
+			'wp_dropdown_languages',
+		];
 	}
 }
 
