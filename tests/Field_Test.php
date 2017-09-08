@@ -13,7 +13,7 @@
 
 declare ( strict_types = 1 );
 
-namespace GrottoPress\WordPress\Form\Tests;
+namespace GrottoPress\WordPress\Form;
 
 use GrottoPress\WordPress\Form\Field;
 
