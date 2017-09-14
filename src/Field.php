@@ -48,9 +48,10 @@ class Field extends Form\Field
         if (\in_array($this->type, $this->callables())) {
             return $this->renderStart().
                 \call_user_func_array(
-                    (string) $this->type,
+                    (string)$this->type,
                     $this->callback_args
-                ).$this->renderEnd();
+                ).
+                $this->renderEnd();
         }
 
         return parent::render();
@@ -66,7 +67,7 @@ class Field extends Form\Field
      *
      * @return string Form field html.
      */
-    protected function renderFile(): string
+    protected function render_file(): string
     {
         \add_action('admin_enqueue_scripts', function () {
             \wp_enqueue_media();
@@ -148,7 +149,7 @@ class Field extends Form\Field
      *
      * @return string Form field html.
      */
-    protected function renderColorPicker(): string
+    protected function render_color_picker(): string
     {
         return '';
     }
@@ -161,7 +162,7 @@ class Field extends Form\Field
      */
     protected function sanitizeAttributes()
     {
-        $this->callback_args = (array) $this->callback_args;
+        $this->callback_args = (array)$this->callback_args;
 
         parent::sanitizeAttributes();
     }
