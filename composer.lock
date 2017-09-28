@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "baa2f6202831370732e289ee5ce13d68",
-    "content-hash": "514ffca6932fa72443b8998f4fab6267",
+    "hash": "0cbcdc2304f117fbaf0975c823eedd24",
+    "content-hash": "28dda668f9dbea780df211659e724806",
     "packages": [
         {
             "name": "aura/html",
@@ -126,16 +126,16 @@
         },
         {
             "name": "grottopress/form-field",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrottoPress/form-field.git",
-                "reference": "91ff2814c9c8e1cbca587d2f8efb5392333d5fe5"
+                "reference": "cf2aec6f0eb0d0435dfd30497275d27e771e5058"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrottoPress/form-field/zipball/91ff2814c9c8e1cbca587d2f8efb5392333d5fe5",
-                "reference": "91ff2814c9c8e1cbca587d2f8efb5392333d5fe5",
+                "url": "https://api.github.com/repos/GrottoPress/form-field/zipball/cf2aec6f0eb0d0435dfd30497275d27e771e5058",
+                "reference": "cf2aec6f0eb0d0435dfd30497275d27e771e5058",
                 "shasum": ""
             },
             "require": {
@@ -174,7 +174,7 @@
                 "form",
                 "html"
             ],
-            "time": "2017-09-13 17:45:57"
+            "time": "2017-09-28 20:20:14"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -896,16 +896,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.3.0",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb"
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9501bab711403a1ab5b8378a8adb4ec3db3debdb",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c0ff817b36a827e64bf5f57bc72278150cf30a77",
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77",
                 "shasum": ""
             },
             "require": {
@@ -976,7 +976,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-04 05:20:39"
+            "time": "2017-09-24 07:25:54"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
