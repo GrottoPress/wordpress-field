@@ -22,7 +22,7 @@
     },
     "require": {
         "php": ">=7.0",
-        "grottopress/form-field": "^0.2"
+        "grottopress/form-field": "^0.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.3"
