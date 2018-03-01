@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c06d4d3f45571ab802fb8c1f6c030e8",
+    "content-hash": "8c55a2ec0315f6d61099cb8a438f4dea",
     "packages": [
         {
             "name": "aura/html",
@@ -236,6 +236,47 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "antecedent/patchwork",
+            "version": "2.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antecedent/patchwork.git",
+                "reference": "3bb81ace3914c220aa273d1c0603d5e1b454c0d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antecedent/patchwork/zipball/3bb81ace3914c220aa273d1c0603d5e1b454c0d7",
+                "reference": "3bb81ace3914c220aa273d1c0603d5e1b454c0d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignas Rudaitis",
+                    "email": "ignas.rudaitis@gmail.com"
+                }
+            ],
+            "description": "Method redefinition (monkey-patching) functionality for PHP.",
+            "homepage": "http://patchwork2.org/",
+            "keywords": [
+                "aop",
+                "aspect",
+                "interception",
+                "monkeypatching",
+                "redefinition",
+                "runkit",
+                "testing"
+            ],
+            "time": "2018-02-19T18:52:50+00:00"
+        },
         {
             "name": "behat/gherkin",
             "version": "v4.5.1",
@@ -747,6 +788,91 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "lucatume/args",
+            "version": "1.0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucatume/args.git",
+                "reference": "9ab69f5c995813b2dfbb067100ada500ee2893e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucatume/args/zipball/9ab69f5c995813b2dfbb067100ada500ee2893e8",
+                "reference": "9ab69f5c995813b2dfbb067100ada500ee2893e8",
+                "shasum": ""
+            },
+            "require": {
+                "xrstf/composer-php52": "1.*"
+            },
+            "require-dev": {
+                "codeception/codeception": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Arg": "src/",
+                    "tad_": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Luca Tumedei",
+                    "email": "luca@theaveragedev.com"
+                }
+            ],
+            "description": "A PHP 5.2 compatible arguments handling library.",
+            "time": "2018-02-11T12:20:29+00:00"
+        },
+        {
+            "name": "lucatume/function-mocker",
+            "version": "1.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucatume/function-mocker.git",
+                "reference": "d7c388526a2621096c27347027e62ff9506ff35c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucatume/function-mocker/zipball/d7c388526a2621096c27347027e62ff9506ff35c",
+                "reference": "d7c388526a2621096c27347027e62ff9506ff35c",
+                "shasum": ""
+            },
+            "require": {
+                "antecedent/patchwork": "^2.0",
+                "lucatume/args": "^1.0",
+                "php": ">=5.6.0",
+                "phpunit/phpunit": ">=5.7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "tad\\FunctionMocker": "src"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "theAverageDev",
+                    "email": "luca@theaveragedev.com"
+                }
+            ],
+            "description": "Function mocking with Patchwork",
+            "time": "2017-09-12T11:55:15+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2757,6 +2883,37 @@
                 "validate"
             ],
             "time": "2018-01-29T19:49:41+00:00"
+        },
+        {
+            "name": "xrstf/composer-php52",
+            "version": "v1.0.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer-php52/composer-php52.git",
+                "reference": "bd41459d5e27df8d33057842b32377c39e97a5a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer-php52/composer-php52/zipball/bd41459d5e27df8d33057842b32377c39e97a5a8",
+                "reference": "bd41459d5e27df8d33057842b32377c39e97a5a8",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-default": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "xrstf\\Composer52": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2016-04-16T21:52:24+00:00"
         }
     ],
     "aliases": [],
