@@ -14,7 +14,10 @@
           "role": "Developer"
         }
     ],
-    "keywords": [ "wordpress" ],
+    "keywords": [
+        "wordpress",
+        "forms"
+    ],
     "support": {
         "issues": "https://github.com/GrottoPress/wordpress-field/issues",
         "wiki": "https://github.com/GrottoPress/wordpress-field/wiki",
