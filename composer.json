@@ -33,5 +33,16 @@
     },
     "autoload-dev": {
         "psr-4": { "GrottoPress\\WordPress\\Form\\": "tests/" }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "chmod +x ./bin/*"
+        ],
+        "test": [
+            "./vendor/bin/codecept run unit"
+        ],
+        "release": [
+            "./bin/release"
+        ]
     }
 }
