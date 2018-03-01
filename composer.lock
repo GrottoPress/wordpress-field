@@ -125,16 +125,16 @@
         },
         {
             "name": "grottopress/form-field",
-            "version": "0.3.0",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrottoPress/form-field.git",
-                "reference": "cf2aec6f0eb0d0435dfd30497275d27e771e5058"
+                "reference": "81e1a75432fdb308d15a85690bff8708bcf939e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrottoPress/form-field/zipball/cf2aec6f0eb0d0435dfd30497275d27e771e5058",
-                "reference": "cf2aec6f0eb0d0435dfd30497275d27e771e5058",
+                "url": "https://api.github.com/repos/GrottoPress/form-field/zipball/81e1a75432fdb308d15a85690bff8708bcf939e1",
+                "reference": "81e1a75432fdb308d15a85690bff8708bcf939e1",
                 "shasum": ""
             },
             "require": {
@@ -173,7 +173,7 @@
                 "form",
                 "html"
             ],
-            "time": "2017-09-28T20:20:14+00:00"
+            "time": "2017-11-20T19:39:32+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
