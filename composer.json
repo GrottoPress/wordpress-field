@@ -1,6 +1,6 @@
 {
     "name": "grottopress/wordpress-field",
-    "description": "A library to render form fields in WordPress.",
+    "description": "Render form fields in WordPress",
     "license": "MIT",
     "authors": [
         {
