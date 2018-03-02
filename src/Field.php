@@ -12,15 +12,23 @@ class Field extends Form\Field
      */
     protected $callback_args;
 
+    /**
+     * @param array $args Field arguments supplied as associative array
+     */
+    public function __construct(array $args = [])
+    {
+        parent::__construct($args);
+
+        $this->callback_args = (array)$this->callback_args;
+    }
+
     public function render(): string
     {
         if (\in_array($this->type, $this->callables())) {
-            return $this->renderStart().
-                \call_user_func_array(
-                    (string)$this->type,
-                    $this->callback_args
-                ).
-                $this->renderEnd();
+            $function = $this->type;
+            $args = $this->callback_args;
+
+            return $this->startRender().$function(...$args).$this->endRender();
         }
 
         return parent::render();
@@ -36,7 +44,7 @@ class Field extends Form\Field
         });
 
         $this->meta['disabled'] = 'disabled';
-        
+
         $html = '<input id="'.\esc_attr($this->id).'" type="hidden" name="'.\esc_attr($this->name).'" value="'.
             \esc_attr($this->value).'" />';
 
@@ -53,7 +61,7 @@ class Field extends Form\Field
             '-delete" class="button .submitdelete">'.
             \esc_html__('Delete').
         '</button>';
-        
+
         $html .= '
         <script type="text/javascript">
             jQuery(function($) {
@@ -103,16 +111,12 @@ class Field extends Form\Field
         return $html;
     }
 
+    /**
+     * @todo
+     */
     protected function render_color_picker(): string
     {
         return '';
-    }
-
-    protected function sanitizeAttributes()
-    {
-        $this->callback_args = (array)$this->callback_args;
-
-        parent::sanitizeAttributes();
     }
 
     /**
