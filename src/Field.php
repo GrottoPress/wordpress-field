@@ -1,71 +1,41 @@
 <?php
-
-/**
- * WordPress Form Field
- *
- * Renders a field based on given args
- *
- * @package GrottoPress\WordPress\Form
- * @since 0.1.0
- *
- * @author GrottoPress <info@grottopress.com>
- * @author N Atta Kus Adusei
- */
-
 declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\Form;
 
 use GrottoPress\Form;
 
-/**
- * WordPress Form field
- *
- * @since 0.1.0
- */
 class Field extends Form\Field
 {
     /**
-     * Callable args
-     *
-     * @since 0.1.0
-     * @access protected
-     *
-     * @var array $callback_args Args to supply to a callable type
+     * @var array
      */
     protected $callback_args;
 
     /**
-     * Render form field.
-     *
-     * @since 0.1.0
-     * @access public
-     *
-     * @return string Form field html.
+     * @param array $args Field arguments supplied as associative array
      */
+    public function __construct(array $args = [])
+    {
+        parent::__construct($args);
+
+        $this->callback_args = (array)$this->callback_args;
+    }
+
     public function render(): string
     {
         if (\in_array($this->type, $this->callables())) {
-            return $this->renderStart().
-                \call_user_func_array(
-                    (string)$this->type,
-                    $this->callback_args
-                ).
-                $this->renderEnd();
+            $function = $this->type;
+            $args = $this->callback_args;
+
+            return $this->startRender().$function(...$args).$this->endRender();
         }
 
         return parent::render();
     }
 
     /**
-     * Render upload field.
-     *
-     * @see http://www.webmaster-source.com/2013/02/06/using-the-wordpress-3-5-media-uploader-in-your-plugin-or-theme/
-     *
-     * @since 0.1.0
-     * @access protected
-     *
-     * @return string Form field html.
+     * Called if $this->type === 'file'
      */
     protected function render_file(): string
     {
@@ -74,7 +44,7 @@ class Field extends Form\Field
         });
 
         $this->meta['disabled'] = 'disabled';
-        
+
         $html = '<input id="'.\esc_attr($this->id).'" type="hidden" name="'.\esc_attr($this->name).'" value="'.
             \esc_attr($this->value).'" />';
 
@@ -91,7 +61,7 @@ class Field extends Form\Field
             '-delete" class="button .submitdelete">'.
             \esc_html__('Delete').
         '</button>';
-        
+
         $html .= '
         <script type="text/javascript">
             jQuery(function($) {
@@ -142,12 +112,7 @@ class Field extends Form\Field
     }
 
     /**
-     * Render color picker.
-     *
-     * @since 0.1.0
-     * @access protected
-     *
-     * @return string Form field html.
+     * @todo
      */
     protected function render_color_picker(): string
     {
@@ -155,25 +120,7 @@ class Field extends Form\Field
     }
 
     /**
-     * Sanitize attributes
-     *
-     * @since 0.1.0
-     * @access protected
-     */
-    protected function sanitizeAttributes()
-    {
-        $this->callback_args = (array)$this->callback_args;
-
-        parent::sanitizeAttributes();
-    }
-
-    /**
-     * Sanitize attributes
-     *
-     * @since 0.1.0
-     * @access protected
-     *
-     * @return array Callables to allow for our field type.
+     * Callables to allow for our field type
      */
     protected function callables(): array
     {
