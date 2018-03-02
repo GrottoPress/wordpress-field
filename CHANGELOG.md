@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.4.0 - 2018-03-02
+
+### Added
+- Set up [Travis-CI](https://travis-ci.org/GrottoPress/wordpress-field)
+- `.security.txt`
+- Shell script for tagging new releases
+
+### Changed
+- Update tests to be isolated unit tests
+
+### Removed
+- Replace PHPUnit with Codeception for tests
+
 ## 0.3.0 - 2017-09-28
 ### Changed
 - Undo camelize render callbacks
