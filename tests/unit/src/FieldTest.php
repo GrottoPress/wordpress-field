@@ -30,7 +30,7 @@ class FieldTest extends AbstractTestCase
         $field = new Field([
             'type' => 'wp_dropdown_categories',
             'layout' => 'block',
-            'callback_args' => [
+            'callbackArgs' => [
                 [
                     'category',
                 ],
@@ -42,8 +42,14 @@ class FieldTest extends AbstractTestCase
 
     public function testFileFieldRender()
     {
-        $add_action = FunctionMocker::replace('add_action');
         $enqueue_media = FunctionMocker::replace('wp_enqueue_media');
+
+        $add_action = FunctionMocker::replace(
+            'add_action',
+            function (string $hook, callable $callback) {
+                \call_user_func($callback);
+            }
+        );
 
         $get_attachment_url = FunctionMocker::replace(
             'wp_get_attachment_url',
@@ -99,6 +105,6 @@ class FieldTest extends AbstractTestCase
 
         $add_action->wasCalledOnce();
         $add_action->wasCalledWithOnce(['admin_enqueue_scripts']);
-        // $enqueue_media->wasCalledOnce();
+        $enqueue_media->wasCalledOnce();
     }
 }
