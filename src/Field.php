@@ -10,7 +10,7 @@ class Field extends Form\Field
     /**
      * @var array
      */
-    protected $callback_args;
+    protected $callbackArgs;
 
     /**
      * @param array $args Field arguments supplied as associative array
@@ -19,14 +19,14 @@ class Field extends Form\Field
     {
         parent::__construct($args);
 
-        $this->callback_args = (array)$this->callback_args;
+        $this->callbackArgs = (array)$this->callbackArgs;
     }
 
     public function render(): string
     {
         if (\in_array($this->type, $this->callables())) {
             $function = $this->type;
-            $args = $this->callback_args;
+            $args = $this->callbackArgs;
 
             return $this->startRender().$function(...$args).$this->endRender();
         }
