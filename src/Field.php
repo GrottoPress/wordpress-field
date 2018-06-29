@@ -58,7 +58,7 @@ class Field extends Form\Field
         '</button>';
 
         $html .= ' <button id="'.\esc_attr($this->id).
-            '-delete" class="button .submitdelete">'.
+            '-delete" class="button submitdelete">'.
             \esc_html__('Delete').
         '</button>';
 
