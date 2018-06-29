@@ -8,12 +8,12 @@ use GrottoPress\Form;
 class Field extends Form\Field
 {
     /**
-     * @var array
+     * @var mixed[int]
      */
     protected $callbackArgs;
 
     /**
-     * @param array $args Field arguments supplied as associative array
+     * @param mixed[string] $args
      */
     public function __construct(array $args = [])
     {
@@ -58,7 +58,7 @@ class Field extends Form\Field
         '</button>';
 
         $html .= ' <button id="'.\esc_attr($this->id).
-            '-delete" class="button .submitdelete">'.
+            '-delete" class="button submitdelete">'.
             \esc_html__('Delete').
         '</button>';
 
@@ -121,6 +121,8 @@ class Field extends Form\Field
 
     /**
      * Callables to allow for our field type
+     *
+     * @return string[int]
      */
     protected function callables(): array
     {
