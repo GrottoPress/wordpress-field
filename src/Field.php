@@ -64,7 +64,7 @@ class Field extends Form\Field
 
         $html .= '
         <script type="text/javascript">
-            jQuery(function($) {
+            (function($) {
                 var grotto_uploader, attachment;';
 
                 $html .= '
@@ -105,7 +105,7 @@ class Field extends Form\Field
                     $("#'.\esc_attr($this->id).'").val(0);
                     $("#'.\esc_attr($this->id).'-url").val("");
                 });
-            });
+            })(jQuery);
         </script>';
 
         return $html;
