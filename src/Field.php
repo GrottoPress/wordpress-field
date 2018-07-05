@@ -3,9 +3,9 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\Form;
 
-use GrottoPress\Form;
+use GrottoPress\Form\Field as FormField;
 
-class Field extends Form\Field
+class Field extends FormField
 {
     /**
      * @var mixed[int]
