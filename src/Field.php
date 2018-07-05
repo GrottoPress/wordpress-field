@@ -35,9 +35,9 @@ class Field extends Form\Field
     }
 
     /**
-     * Called if $this->type === 'file'
+     * Called if $this->type === 'media'
      */
-    protected function render_file(): string
+    protected function render_media(): string
     {
         \add_action('admin_enqueue_scripts', function () {
             \wp_enqueue_media();
