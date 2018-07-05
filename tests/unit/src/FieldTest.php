@@ -40,7 +40,7 @@ class FieldTest extends AbstractTestCase
         $this->assertSame('<p>category</p>', $field->render());
     }
 
-    public function testFileFieldRender()
+    public function testMediaFieldRender()
     {
         $enqueue_media = FunctionMocker::replace('wp_enqueue_media');
 
@@ -66,7 +66,7 @@ class FieldTest extends AbstractTestCase
         $field = new Field([
             'id' => 'field-id',
             'name' => 'field-name',
-            'type' => 'file',
+            'type' => 'media',
             'value' => '23',
             'meta' => ['class' => 'my-class'],
         ]);

@@ -3,9 +3,9 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\Form;
 
-use GrottoPress\Form;
+use GrottoPress\Form\Field as FormField;
 
-class Field extends Form\Field
+class Field extends FormField
 {
     /**
      * @var mixed[int]
@@ -35,9 +35,9 @@ class Field extends Form\Field
     }
 
     /**
-     * Called if $this->type === 'file'
+     * Called if $this->type === 'media'
      */
-    protected function render_file(): string
+    protected function render_media(): string
     {
         \add_action('admin_enqueue_scripts', function () {
             \wp_enqueue_media();
@@ -64,7 +64,7 @@ class Field extends Form\Field
 
         $html .= '
         <script type="text/javascript">
-            jQuery(function($) {
+            (function($) {
                 var grotto_uploader, attachment;';
 
                 $html .= '
@@ -105,7 +105,7 @@ class Field extends Form\Field
                     $("#'.\esc_attr($this->id).'").val(0);
                     $("#'.\esc_attr($this->id).'-url").val("");
                 });
-            });
+            })(jQuery);
         </script>';
 
         return $html;
