@@ -54,12 +54,12 @@ class Field extends FormField
 
         $html .= ' <button id="'.
             \esc_attr($this->id).'-button" class="button">'.
-            \esc_html__('Select').
+            \esc_html__('Select', 'grotto-wp-field').
         '</button>';
 
         $html .= ' <button id="'.\esc_attr($this->id).
             '-delete" class="button submitdelete">'.
-            \esc_html__('Delete').
+            \esc_html__('Delete', 'grotto-wp-field').
         '</button>';
 
         $html .= '
@@ -79,9 +79,9 @@ class Field extends FormField
 
                     $html .= '
                     grotto_uploader = wp.media.frames.file_frame = wp.media({
-                        title: "'.\esc_html__('Upload file').'",
+                        title: "'.\esc_html__('Upload file', 'grotto-wp-field').'",
                         button: {
-                            text: "'.\esc_html__('Use file').'"
+                            text: "'.\esc_html__('Use file', 'grotto-wp-field').'"
                         },
                         multiple: false
                     });';

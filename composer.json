@@ -33,12 +33,12 @@
   },
   "autoload": {
     "psr-4": {
-      "GrottoPress\\WordPress\\Form\\": "src/"
+      "GrottoPress\\WordPress\\Form\\": "lib/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "GrottoPress\\WordPress\\Form\\": "tests/unit/src/"
+      "GrottoPress\\WordPress\\Form\\": "tests/unit/lib/"
     }
   },
   "scripts": {
