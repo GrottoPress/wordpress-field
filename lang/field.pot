@@ -13,19 +13,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Field.php:57
+#: lib/Field.php:57
 msgid "Select"
 msgstr ""
 
-#: src/Field.php:62
+#: lib/Field.php:62
 msgid "Delete"
 msgstr ""
 
-#: src/Field.php:82
+#: lib/Field.php:82
 msgid "Upload file"
 msgstr ""
 
-#: src/Field.php:84
+#: lib/Field.php:84
 msgid "Use file"
 msgstr ""
 

@@ -11,6 +11,6 @@ extensions:
 coverage:
   enabled: true
   include:
-    - src/*
+    - lib/*
 settings:
   bootstrap: _bootstrap.php

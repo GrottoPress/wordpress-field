@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `.editorconfig`
 - Add translations template
 
+### Changed
+- Rename `src/` directory to `lib/`
+
 ## 0.6.0 - 2018-07-05
 
 ### Changed
