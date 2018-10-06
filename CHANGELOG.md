@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+- Add TinyMCE editor field
+
 ### Changed
 - Rename `LICENSE.md` TO `LICENSE`
 - Move `lang/`, `lib/` to a new `src/` directory

@@ -20,15 +20,22 @@ class Field extends FormField
         parent::__construct($args);
 
         $this->callbackArgs = (array)$this->callbackArgs;
+
+        if ('wp_editor' === $this->type) {
+            $this->wrap = '';
+            $this->label = '';
+            $this->callbackArgs[2]['tinymce'] = false;
+        }
     }
 
     public function render(): string
     {
         if (\in_array($this->type, $this->callables())) {
             $function = $this->type;
-            $args = $this->callbackArgs;
 
-            return $this->startRender().$function(...$args).$this->endRender();
+            return $this->startRender().
+                $function(...$this->callbackArgs).
+                $this->endRender();
         }
 
         return parent::render();
@@ -132,6 +139,7 @@ class Field extends FormField
             'wp_dropdown_users',
             'wp_dropdown_roles',
             'wp_dropdown_languages',
+            'wp_editor',
         ];
     }
 }
