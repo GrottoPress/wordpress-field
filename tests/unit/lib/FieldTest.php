@@ -107,4 +107,28 @@ class FieldTest extends AbstractTestCase
         $add_action->wasCalledWithOnce(['admin_enqueue_scripts']);
         $enqueue_media->wasCalledOnce();
     }
+
+    public function testWPEditor()
+    {
+        $callable = FunctionMocker::replace(
+            'wp_editor',
+            function (string $content, string $id, array $args): string {
+                return true === $args['tinymce'] ? 'true' : 'false';
+            }
+        );
+
+        $field = new Field([
+            'type' => 'wp_editor',
+            'label' => 'label',
+            'callbackArgs' => [
+                'content',
+                'id',
+                [
+                    'tinymce' => true,
+                ],
+            ],
+        ]);
+
+        $this->assertSame('false', $field->render());
+    }
 }
