@@ -10,7 +10,7 @@ php:
   - nightly
 
 before_install: composer self-update
-install: composer install --no-interaction --no-scripts
+install: composer update --no-interaction --no-scripts
 
 script:
   - composer run test
