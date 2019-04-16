@@ -1,15 +1,16 @@
 language: php
-dist: trusty
+dist: xenial
 sudo: false
 
 php:
   - 7.0
   - 7.1
   - 7.2
+  - 7.3
   - nightly
 
 before_install: composer self-update
-install: composer install --no-interaction
+install: composer install --no-interaction --no-scripts
 
 script:
   - composer run test
@@ -21,5 +22,5 @@ matrix:
 
 cache:
   directories:
-    - vendor
     - $HOME/.composer/cache
+    - vendor
