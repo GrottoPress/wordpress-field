@@ -12,5 +12,3 @@ coverage:
   enabled: true
   include:
     - lib/*
-settings:
-  bootstrap: _bootstrap.php
