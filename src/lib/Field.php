@@ -46,7 +46,7 @@ class Field extends FormField
      */
     protected function render_media(): string
     {
-        \add_action('admin_enqueue_scripts', function () {
+        \add_action('admin_enqueue_scripts', function (string $page) {
             \wp_enqueue_media();
         });
 
@@ -71,21 +71,21 @@ class Field extends FormField
 
         $html .= '
         <script type="text/javascript">
-            (function($) {
-                var grotto_uploader, attachment;';
+            (function(_j, _w) {
+                var uploader, attachment;';
 
                 $html .= '
-                $("#'.\esc_attr($this->id).'-button").click(function(e) {
+                _j("#'.\esc_attr($this->id).'-button").click(function(e) {
                     e.preventDefault();';
 
                     $html .= '
-                    if (grotto_uploader) {
-                        grotto_uploader.open();
+                    if (uploader) {
+                        uploader.open();
                         return;
                     }';
 
                     $html .= '
-                    grotto_uploader = wp.media.frames.file_frame = wp.media({
+                    uploader = _wp.media.frames.file_frame = _wp.media({
                         title: "'.\esc_html__('Upload file', 'grotto-wp-field').'",
                         button: {
                             text: "'.\esc_html__('Use file', 'grotto-wp-field').'"
@@ -94,25 +94,25 @@ class Field extends FormField
                     });';
 
                     $html .= '
-                    grotto_uploader.on("select", function() {
-                        attachment = grotto_uploader.state().get("selection").first().toJSON();
-                        $("#'.\esc_attr($this->id).'-url").val(attachment.url);
-                        $("#'.\esc_attr($this->id).'").val(attachment.id);
+                    uploader.on("select", function() {
+                        attachment = uploader.state().get("selection").first().toJSON();
+                        _j("#'.\esc_attr($this->id).'-url").val(attachment.url);
+                        _j("#'.\esc_attr($this->id).'").val(attachment.id);
                     });';
 
                     $html .= '
-                    grotto_uploader.open();
+                    uploader.open();
                 });';
 
                 $html .= '
-                $("#'.\esc_attr($this->id).'-delete").click(function(e) {
+                _j("#'.\esc_attr($this->id).'-delete").click(function(e) {
                     e.preventDefault();';
 
                     $html .= '
-                    $("#'.\esc_attr($this->id).'").val(0);
-                    $("#'.\esc_attr($this->id).'-url").val("");
+                    _j("#'.\esc_attr($this->id).'").val(0);
+                    _j("#'.\esc_attr($this->id).'-url").val("");
                 });
-            })(jQuery);
+            })(jQuery, wp);
         </script>';
 
         return $html;
