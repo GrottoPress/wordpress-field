@@ -42,15 +42,6 @@ class FieldTest extends AbstractTestCase
 
     public function testMediaFieldRender()
     {
-        $enqueue_media = FunctionMocker::replace('wp_enqueue_media');
-
-        $add_action = FunctionMocker::replace(
-            'add_action',
-            function (string $hook, callable $callback) {
-                \call_user_func($callback);
-            }
-        );
-
         $get_attachment_url = FunctionMocker::replace(
             'wp_get_attachment_url',
             'http://my.site/att.png'
@@ -102,10 +93,6 @@ class FieldTest extends AbstractTestCase
             'my-class',
             $inputs->item(1)->attributes->getNamedItem('class')->value
         );
-
-        $add_action->wasCalledOnce();
-        $add_action->wasCalledWithOnce(['admin_enqueue_scripts']);
-        $enqueue_media->wasCalledOnce();
     }
 
     public function testWPEditor()

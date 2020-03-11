@@ -43,16 +43,16 @@ class Field extends FormField
 
     /**
      * Called if $this->type === 'media'
+     *
+     * Requires `wp_enqueue_media()` call, preferably using the
+     * `admin_enqueue_scripts` hook
      */
     protected function render_media(): string
     {
-        \add_action('admin_enqueue_scripts', function () {
-            \wp_enqueue_media();
-        });
-
         $this->meta['disabled'] = 'disabled';
 
-        $html = '<input id="'.\esc_attr($this->id).'" type="hidden" name="'.\esc_attr($this->name).'" value="'.
+        $html = '<input id="'.\esc_attr($this->id).'" type="hidden" name="'.
+            \esc_attr($this->name).'" value="'.
             \esc_attr($this->value).'" />';
 
         $html .= '<input '.$this->metaString().' id="'.
@@ -71,48 +71,52 @@ class Field extends FormField
 
         $html .= '
         <script type="text/javascript">
-            (function($) {
-                var grotto_uploader, attachment;';
+            jQuery(function(_j) {
+                var uploader, attachment;';
 
                 $html .= '
-                $("#'.\esc_attr($this->id).'-button").click(function(e) {
+                _j("#'.\esc_attr($this->id).'-button").click(function(e) {
                     e.preventDefault();';
 
                     $html .= '
-                    if (grotto_uploader) {
-                        grotto_uploader.open();
-                        return;
+                    if (uploader) {
+                        return uploader.open();
                     }';
 
                     $html .= '
-                    grotto_uploader = wp.media.frames.file_frame = wp.media({
-                        title: "'.\esc_html__('Upload file', 'grotto-wp-field').'",
-                        button: {
-                            text: "'.\esc_html__('Use file', 'grotto-wp-field').'"
-                        },
+                    uploader = wp.media({
+                        title: "'.
+                            \esc_html__('Upload file', 'grotto-wp-field').
+                        '",
+                        button: {text: "'.
+                            \esc_html__('Use file', 'grotto-wp-field').
+                        '"},
                         multiple: false
                     });';
 
                     $html .= '
-                    grotto_uploader.on("select", function() {
-                        attachment = grotto_uploader.state().get("selection").first().toJSON();
-                        $("#'.\esc_attr($this->id).'-url").val(attachment.url);
-                        $("#'.\esc_attr($this->id).'").val(attachment.id);
+                    uploader.on("select", function() {
+                        attachment = uploader.state()
+                            .get("selection")
+                            .first()
+                            .toJSON();
+                        _j("#'.\esc_attr($this->id).'-url").val(attachment.url);
+                        _j("#'.\esc_attr($this->id).'").val(attachment.id);
                     });';
 
                     $html .= '
-                    grotto_uploader.open();
+                    uploader.open();
                 });';
 
                 $html .= '
-                $("#'.\esc_attr($this->id).'-delete").click(function(e) {
+                _j("#'.\esc_attr($this->id).'-delete").click(function(e) {
                     e.preventDefault();';
 
                     $html .= '
-                    $("#'.\esc_attr($this->id).'").val(0);
-                    $("#'.\esc_attr($this->id).'-url").val("");
+                    _j("#'.\esc_attr($this->id).'").val(0);
+                    _j("#'.\esc_attr($this->id).'-url").val("");
                 });
-            })(jQuery);
+            });
         </script>';
 
         return $html;
