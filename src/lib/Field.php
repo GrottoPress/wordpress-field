@@ -43,16 +43,16 @@ class Field extends FormField
 
     /**
      * Called if $this->type === 'media'
+     *
+     * Requires `wp_enqueue_media()` call, preferably using the
+     * `admin_enqueue_scripts` hook
      */
     protected function render_media(): string
     {
-        \add_action('admin_enqueue_scripts', function (string $page) {
-            \wp_enqueue_media();
-        });
-
         $this->meta['disabled'] = 'disabled';
 
-        $html = '<input id="'.\esc_attr($this->id).'" type="hidden" name="'.\esc_attr($this->name).'" value="'.
+        $html = '<input id="'.\esc_attr($this->id).'" type="hidden" name="'.
+            \esc_attr($this->name).'" value="'.
             \esc_attr($this->value).'" />';
 
         $html .= '<input '.$this->metaString().' id="'.
@@ -71,7 +71,7 @@ class Field extends FormField
 
         $html .= '
         <script type="text/javascript">
-            (function(_j, _w) {
+            jQuery(function(_j) {
                 var uploader, attachment;';
 
                 $html .= '
@@ -80,22 +80,26 @@ class Field extends FormField
 
                     $html .= '
                     if (uploader) {
-                        uploader.open();
-                        return;
+                        return uploader.open();
                     }';
 
                     $html .= '
-                    uploader = _wp.media.frames.file_frame = _wp.media({
-                        title: "'.\esc_html__('Upload file', 'grotto-wp-field').'",
-                        button: {
-                            text: "'.\esc_html__('Use file', 'grotto-wp-field').'"
-                        },
+                    uploader = wp.media({
+                        title: "'.
+                            \esc_html__('Upload file', 'grotto-wp-field').
+                        '",
+                        button: {text: "'.
+                            \esc_html__('Use file', 'grotto-wp-field').
+                        '"},
                         multiple: false
                     });';
 
                     $html .= '
                     uploader.on("select", function() {
-                        attachment = uploader.state().get("selection").first().toJSON();
+                        attachment = uploader.state()
+                            .get("selection")
+                            .first()
+                            .toJSON();
                         _j("#'.\esc_attr($this->id).'-url").val(attachment.url);
                         _j("#'.\esc_attr($this->id).'").val(attachment.id);
                     });';
@@ -112,7 +116,7 @@ class Field extends FormField
                     _j("#'.\esc_attr($this->id).'").val(0);
                     _j("#'.\esc_attr($this->id).'-url").val("");
                 });
-            })(jQuery, wp);
+            });
         </script>';
 
         return $html;
