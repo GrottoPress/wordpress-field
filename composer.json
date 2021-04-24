@@ -28,7 +28,8 @@
     "grottopress/form-field": "^0.6"
   },
   "require-dev": {
-    "codeception/codeception": "^2.4",
+    "codeception/codeception": "^4.1",
+    "codeception/module-asserts": "^1.3",
     "lucatume/function-mocker": "^1.3"
   },
   "autoload": {
