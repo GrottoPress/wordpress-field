@@ -4,13 +4,11 @@
 
 *WordPress Field* is a simple library to render form fields in WordPress.
 
+## Installation
+
+Install via composer: `composer require grottopress/wordpress-field`
+
 ## Usage
-
-Install via composer:
-
-`composer require grottopress/wordpress-field`
-
-Instantiate and use thus:
 
 ```php
 <?php
@@ -98,3 +96,17 @@ $catsdrop = new Field([
 // Render categories dropdown
 echo $catsdrop->render();
 ```
+
+## Development
+
+Run tests with `composer run test`.
+
+## Contributing
+
+1. [Fork it](https://github.com/GrottoPress/wordpress-field/fork)
+1. Switch to the `master` branch: `git checkout master`
+1. Create your feature branch: `git checkout -b my-new-feature`
+1. Make your changes, updating changelog and documentation as appropriate.
+1. Commit your changes: `git commit`
+1. Push to the branch: `git push origin my-new-feature`
+1. Submit a new *Pull Request* against the `GrottoPress:master` branch.
