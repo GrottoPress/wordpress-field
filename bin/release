@@ -3,7 +3,7 @@
 # Bump version and release
 
 TO_VERSION="${1#v}"
-DEV_BRANCH='dev'
+DEV_BRANCH='master'
 
 doChecks()
 {
